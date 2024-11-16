@@ -7,7 +7,7 @@
 </head>
 <body>
    <h1>Code </h1> 
-   <button id = 'stop'>Start</button>
+   <button id = 'start'>Start</button>
 <button id="stop">Stop</button>
 </body>
 <script>
@@ -24,13 +24,28 @@
 //     console.log("Stopped");
 //   })
 
-const sayDate=function(str){
-  console.log(str,Date.now());
-}
-setInterval(sayDate,1000,"hi")
-const intervalId= setInterval(sayDate,1000,"hi") 
+let intervalId
+ document.getElementById('start').addEventListener("click",function(e){
+ intervalId= setInterval(()=>{
+console.log(Date.now(),"hi")
+ },1000)
+ })
+
+ document.getElementById('stop').addEventListener("click",function(e){
+clearInterval(intervalId);
+ })
+ 
+
+// const sto=document.getElementById('#stop')
 
 
-clearInterval(intervalId)
+
+// const sayDate=function(str){
+//   console.log(str,Date.now());
+// }
+// const intervalId= setInterval(sayDate,1000,"hi") 
+
+
+// clearInterval(intervalId)
 </script>
 </html>
